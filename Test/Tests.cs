@@ -18,7 +18,11 @@ public class Tests
     [OneTimeSetUp]
     public void OneTimeSetUp()
     {
-        BrowserFactory = new BrowserFactory();
+        var headlessEnv = Environment.GetEnvironmentVariable("AUTOMATION_HEADLESS");
+        var useHeadless = !string.IsNullOrEmpty(headlessEnv) 
+                          && (bool.TryParse(headlessEnv, out var parsedHeadless) && parsedHeadless);
+        
+        BrowserFactory = new BrowserFactory(useHeadless);
     }
     
     [SetUp]
