@@ -3,7 +3,7 @@
 <RunSettings>
 	<NUnit>
 		<MaxCpuCount>4</MaxCpuCount>
-		<NumberOfTestWorkers>4</NumberOfTestWorkers>
+		<NumberOfTestWorkers>2</NumberOfTestWorkers>
 		<TestOutputXml>Results</TestOutputXml>
 		<DisplayName>FullName</DisplayName>
 		<UseTestNameInConsoleOutput>true</UseTestNameInConsoleOutput>
