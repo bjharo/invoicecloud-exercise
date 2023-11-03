@@ -9,26 +9,15 @@ namespace Test;
 [Parallelizable(ParallelScope.Children)]
 public class Tests
 {
-    private BrowserFactory BrowserFactory { get; set; } = null!;
     private ThreadLocal<MainActions> Actions { get; } = new();
-    private IWebDriver Driver => BrowserFactory.CurrentBrowser;
+    private IWebDriver Driver => TestSetup.BrowserFactory.CurrentBrowser;
     
     private static string AppUrl => "https://the-internet.herokuapp.com/add_remove_elements/";
-
-    [OneTimeSetUp]
-    public void OneTimeSetUp()
-    {
-        var headlessEnv = Environment.GetEnvironmentVariable("AUTOMATION_HEADLESS");
-        var useHeadless = !string.IsNullOrEmpty(headlessEnv) 
-                          && (bool.TryParse(headlessEnv, out var parsedHeadless) && parsedHeadless);
-        
-        BrowserFactory = new BrowserFactory(useHeadless);
-    }
     
     [SetUp]
     public void Setup()
     {
-        BrowserFactory.CreateBrowser();
+        TestSetup.BrowserFactory.CreateBrowser();
         Actions.Value = new MainActions(Driver);
         Actions.Value.LaunchApp(AppUrl);
     }
@@ -36,7 +25,7 @@ public class Tests
     [TearDown]
     public void TearDown()
     {
-        BrowserFactory.DisposeCurrentBrowser();
+        TestSetup.BrowserFactory.DisposeCurrentBrowser();
     }
 
     [Test]
