@@ -1,0 +1,38 @@
+name: Run Selenium Tests
+
+on:
+  workflow_dispatch: 
+    
+permissions: 
+  contents: read
+  issues: read
+  checks: write
+  pull-requests: write
+  
+jobs:
+  run-test:
+    name: Build Framework and Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+          
+      - name: Restore Packages
+        run: dotnet restore
+        
+      - name: Build Test Framework
+        run: dotnet build --no-restore
+        
+      - name: Run All Tests
+        run: dotnet test --no-restore --no-build -e AUTOMATION_HEADLESS=true
+        
+      - name: Test Report
+        uses: hudl/GHA-test-reporter@v1.1.5
+        show-html-notice: true
+        path: ./Test/bin/Debug/results/TestResults.trx
