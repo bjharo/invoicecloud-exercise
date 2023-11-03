@@ -34,5 +34,6 @@ jobs:
         
       - name: Test Report
         uses: hudl/GHA-test-reporter@v1.1.5
-        show-html-notice: true
-        path: ./Test/bin/Debug/results/TestResults.trx
+        with:
+          show-html-notice: true
+          path: ./Test/bin/Debug/results/TestResults.trx
