@@ -27,6 +27,11 @@
                         <LogFileName>TestResults.trx</LogFileName>
                     </Configuration>
                 </Logger>
+                <Logger friendlyName="html" enabled="True">
+                    <Configuration>
+                        <LogFileName>TestResults.html</LogFileName>
+                    </Configuration>
+                </Logger>
             </Loggers>
         </LoggerRunSettings>
 </RunSettings>
