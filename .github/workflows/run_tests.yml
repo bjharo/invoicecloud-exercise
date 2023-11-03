@@ -35,5 +35,6 @@ jobs:
       - name: Test Report
         uses: hudl/GHA-test-reporter@v1.1.5
         with:
+          name: Selenium Test Results
           show-html-notice: true
           path: ./Test/bin/Debug/results/TestResults.trx
