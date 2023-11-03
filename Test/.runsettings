@@ -11,11 +11,20 @@
 		<Verbosity>3</Verbosity>
 	</NUnit>
 	
+	<RunConfiguration>
+	    <ResultsDirectory>bin/Debug/results</ResultsDirectory>
+	</RunConfiguration>
+	
 	<LoggerRunSettings>
             <Loggers>
                 <Logger friendlyName="console" enabled="True">
                     <Configuration>
                         <Verbosity>detailed</Verbosity>
+                    </Configuration>
+                </Logger>
+                <Logger friendlyName="trx" enabled="True">
+                    <Configuration>
+                        <LogFileName>TestResults.trx</LogFileName>
                     </Configuration>
                 </Logger>
             </Loggers>
