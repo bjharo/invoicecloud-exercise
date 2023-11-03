@@ -27,7 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ui\Ui.csproj" />
+    <None Update=".runsettings">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
+  
+  <Target Name="PrepResults" AfterTargets="Build">
+    <Message Importance="High" Text="Removing and creating results folder" />
+    <RemoveDir Directories="$(OutputPath)\results\" />
+    <MakeDir Directories="$(OutputPath)\results\" />
+  </Target>
 
 </Project>
