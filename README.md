@@ -16,6 +16,9 @@
 
 ### Running in Github Actions
 
+**Currently you need to have write access to the repository in order to run a workflow. If you do not have that access,
+you can still view the results of existing workflows by going [here](https://github.com/bjharo/invoicecloud-exercise/actions/workflows/run_tests.yml)**
+
 1. Go to the [Actions page](https://github.com/bjharo/invoicecloud-exercise/actions) for this repository.
 2. In the Actions column on the left, click _Run Selenium Tests_.
 3. On the right-hand side of the page, locate the _Run Workflow_ dropdown button. Click it.
