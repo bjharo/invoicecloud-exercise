@@ -1,4 +1,4 @@
-# Selenium Exercise for InvoiceCloud
+# Selenium Example for InvoiceCloud
 
 ## Requirements (Local Execution)
 
